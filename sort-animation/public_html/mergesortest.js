@@ -5,6 +5,13 @@
  */
 
 
+/* 
+ * MEEEEERP!!!
+ * There is definitely nothing wrong with me.
+ * Hey, it's some code!
+ */
+
+
 var cnvs3 = document.getElementById("sorter");
 var dista3 = cnvs3.getContext("2d");
 var dwidth = cnvs3.width;
@@ -57,39 +64,12 @@ function Keydet() { //dis is the sorting thingy
    var dista2 = cnvs2.getContext("2d");
    dista2.clearRect(0, 0, cnvs2.height, cnvs2.width);
    console.log("iteration " + i); //prints current list iteration to console
-   /*for (x = 0; x < array.length - 1 - i; x++) { //runs through the list x times, up until the length of the array -i-1 ...
-        //... as the last few are going to be sorted- saves resources
-        var nexvar = array[x + 1]; //saves array[x+1] as a var, also saves resources
-        if (array[x] > nexvar) { //checks if the current variable is greater than the next one
-            index2 = x + 1;
-            array[x + 1] = array[x]; //if so, it replaces it with the first one
-            console.log(array[x] + "<--->" + nexvar + "(positions " + x + " and " + index2 + ")");
-            array[x] = nexvar; //sets the original array spot with the swapped one
-        }
-    
-   }*/
-    for(j = 0; j<array.length-1-i; j++){
-        while(true){
-            x = 0;
-            sortvar= array[x];
-            nexvar = array[x+1];
-            if(sortvar > nexvar){
-                newvar = array[x];
-                array[x] = nexvar;
-                array[x+1] = newvar;
-            }
-            else if(sortvar<=nexvar){
-                break;
-            }
-            x++;
-            if(x>array.length-1){
-                break;
-            }
-        }
-    }
-    console.log("drawn");
-    drawfromcenter();
-    console.log("Step " + i + ": " + array); //logs the array step
-    i++;
+   for(x = 0; x<array.length-1;x++){
+       
+   }
+   console.log("drawn");
+   drawfromcenter();
+   console.log("Step " + i + ": " + array); //logs the array step
+   i++;
 }
 drawfromcenter();

@@ -1,8 +1,15 @@
+/* 
+ * MEEEEERP!!!
+ * There is definitely nothing wrong with me.
+ * Hey, it's some code!
+ */
+
+
 var cnvs3 = document.getElementById("sorter");
 var dista3 = cnvs3.getContext("2d");
 var dwidth = cnvs3.width;
 var array = [1000, 4000, 6000, 3000, 2000, 5000, 7000, 10000, 8000, 9000];
-var array2 = [-1, 8, 7, 5, 3, -12, 1, 100, 70];
+var masterarray = [];
 var buttonpressed = false;
 var timeout = false;
 document.onkeydown = Keydet;
@@ -21,16 +28,18 @@ function getLargest() {
     }
     return Math.abs(largest);
 }
-function drawfromcenter() {
+function drawfromcenter(num) {
     console.log("draw");
     var cnvs = document.getElementById("sorter");
     var dista = cnvs.getContext("2d");
     var len = array.length;
     var barheight = (cnvs.height - (len + 1) * 10) / len;
     var largesto = getLargest();
+    var temparray = masterarray[num];
+    console.log(temparray);
     for (a = 0; a < array.length; a++) {
-        var scaleamt = getscalenum(array[a], largesto);
-        if (array[a] >= 0) {
+        var scaleamt = getscalenum(temparray[a], largesto);
+        if (temparray[a] >= 0) {
             dista.beginPath();
             dista.fillStyle = "#00b9f1";
             dista.fillRect(cnvs.height / 2, a * (barheight + 10), scaleamt, barheight);
@@ -61,8 +70,22 @@ function Keydet() { //dis is the sorting thingy
         }
     }
     console.log("drawn");
+    masterarray.push(array);
     drawfromcenter();
     console.log("Step " + i + ": " + array); //logs the array step
     i++;
+    console.log(masterarray);
 }
-drawfromcenter();
+/*function checkkeyval(e) {
+    e = e || window.event;
+    num = 0;
+    if (e.keyCode === '37') {
+        if (num > 0) {
+            num--;
+            drawfromcenter(num);
+        }
+    } else if (e.keyCode === '39') {
+        num++;
+        drawfromcenter(num);
+    }
+}*/
